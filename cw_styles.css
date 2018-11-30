@@ -1,0 +1,170 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 5
+   Case Problem 3
+   
+   Author:   Brenden Riley
+   Date:      11.30.18
+   
+   Filename: cw_styles.css
+
+   This file contains the screen styles used with the 
+   Cauli-Wood Gallery home page
+
+*/
+
+
+/* Import Basic Design Styles  */
+/* This imports all the style rules from the cw_designs.css stylesheet */
+@import url("cw_designs.css");
+
+
+/* ===============================
+	General Styles for All Devices
+   ===============================
+*/
+/* Any nav with an ID of bottom will be a flex-box (with support for older browsers throughout) with content displayed in a row that won't wrap to a new line, and be centered vertically */
+nav#bottom {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+/* The unordered lists will not grow, only shrink, having a max width of 150px */
+nav#bottom ul {
+    -webkit-flex: 0 1 150px;
+    flex: 0 1 150px;
+}
+
+
+/* ===============================
+	Mobile Styles up to 480 pixels
+   ===============================
+*/
+/* These style rules apply only when the width of the screen or browser is less than or equal to 480px, so that we can beeter design for mobile devices */
+@media only screen and (max-width: 480px) {
+
+    /* the body will have white-ish text, with a dark background */
+    body {
+        color: rgb(211, 211, 211);
+        background-color: rgb(51, 51, 51)
+    }
+
+    /* The aside, images within an article element, and the spotlight section wont be seen */
+    aside,
+    article img,
+    section#spotlight {
+        display: none;
+    }
+
+    /* any unordered lists within the top navigation will be flexboxes that will have content that is in rows and wraps to the next line */
+    nav#top ul {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    /* any list items within an unordered list within the top navigation wil have a larger font size, expand and shrink equally, starting at 130px */
+    nav#top ul li {
+        font-size: 2.2em;
+        -webkit-flex: 1 1 130px;
+        flex: 1 1 130px;
+    }
+
+    /* each of the list items have a specifc image as there background, which takes up their entire background, within repeating */
+    nav#top ul li:nth-of-type(1) {
+        background: url("cw_image01.png") center/100% no-repeat;
+    }
+
+    nav#top ul li:nth-of-type(2) {
+        background: url("cw_image02.png") center/100% no-repeat;
+    }
+
+    nav#top ul li:nth-of-type(3) {
+        background: url("cw_image03.png") center/100% no-repeat;
+    }
+
+    nav#top ul li:nth-of-type(4) {
+        background: url("cw_image04.png") center/100% no-repeat;
+    }
+
+    nav#top ul li:nth-of-type(5) {
+        background: url("cw_image05.png") center/100% no-repeat;
+    }
+
+    nav#top ul li:nth-of-type(6) {
+        background: url("cw_image06.png") center/100% no-repeat;
+    }
+
+    /* the links paragraph will be a flex box that does not wrap, which will have content that has space between them. */
+    p#links {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+    }
+
+    /* hypertext within the links paragraph will have white text over a red background, ave curved borders, with padding, and no underline */
+    p#links a {
+        color: white;
+        background-color: rgb(220, 27, 27);
+        border-radius: 20px;
+        padding: 10px;
+        text-decoration: none;
+    }
+}
+
+/* ============================================
+	Tablet and Desktop Devices: 481px or more 
+   ============================================
+*/
+/* These style rules only apply when the screen or browser has over 480 pixels, for tablet and desktop versions */
+@media only screen and (min-width: 481px) {
+
+    /* The entire body will be a flexbox with content that is in a row that will not wrap */
+    body {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    /* the article that is a descendant of the body is a flexbox that grows at twice the rate it shrinks, with a base of 400px */
+    body article {
+        -webkit-flex: 2 1 400px;
+        flex: 2 1 400px;
+    }
+
+    /* any asides within the body are flexboxes that shrink twice as fast as they grow, and have a basis of 200px */
+    body aside {
+        -webkit-flex: 1 2 200px;
+        flex: 1 2 200px;
+    }
+
+    /* any unordered lists within the top navigation will be flex boxes that have a dark background, a height of 50px, and be horizontally and vertically centered within their boxes */
+    nav#top ul {
+        display: -webkit-flex;
+        display: flex;
+        background-color: rgb(51, 51, 51);
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* the list items within the top navigation will only shrink, with a max of 80px */
+    nav#top li {
+        -webkit-flex: 0 1 80px;
+        flex: 0 1 80px;
+    }
+
+    /* the links paragraph will not appear */
+    p#links {
+        display: none;
+    }
+}
